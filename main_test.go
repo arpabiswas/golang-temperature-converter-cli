@@ -45,14 +45,14 @@ func TestCheckForArgumentsM1(t *testing.T) {
 		cmd := exec.Command(path.Join(dir, binaryName), []string{}...)
 		output, err := cmd.CombinedOutput()
 		if err == nil || !strings.Contains(string(output), errInvalidArguments.Error()) {
-			t.Fatal("Did not validate command line arguments properly")
+			t.Fatal("Did not validate command line arguments properly 1")
 		}
 
 		// Runs the program with more than enough
 		cmd2 := exec.Command(path.Join(dir, binaryName), []string{"one", "two"}...)
 		output2, err2 := cmd2.CombinedOutput()
 		if err2 == nil || !strings.Contains(string(output2), errInvalidArguments.Error()) {
-			t.Fatal("Did not validate command line arguments properly")
+			t.Fatal("Did not validate command line arguments properly 2")
 		}
 	})
 }
